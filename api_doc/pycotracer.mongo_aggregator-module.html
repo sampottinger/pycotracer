@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pycotracer.mongo_aggregator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pycotracer-module.html">Package&nbsp;pycotracer</a> ::
+        Module&nbsp;mongo_aggregator
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pycotracer.mongo_aggregator-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module mongo_aggregator</h1><p class="nomargin-top"><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html">source&nbsp;code</a></span></p>
+<p>Simple Mongo-DB serialization convienence module for pycotracer.</p>
+  <p>Convienence / reference implementation for serializing data read from 
+  the pycotracer micro-library to a database. The pycotracer micro-library 
+  provides programatic access to Colorado Transparency in Contribution and 
+  Expenditure Reporting Campaign Finance system data (TRACER). This is an 
+  unofficial library / access layer.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        A. Samuel Pottinger (samnsparky, Gleap LLC)
+      </p>
+      <p><strong>Organization:</strong>
+        Gleap LLC (gleap.org)
+      </p>
+      <p><strong>Copyright:</strong>
+        2013
+      </p>
+      <p><strong>License:</strong>
+        GNU GPL v3
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td class="summary" colspan="2">
+        <a href="pycotracer.mongo_aggregator.UpdateStrategyFactory-class.html" class="summary-name">UpdateStrategyFactory</a><br />
+      A strategy producing factory that serializes different types of 
+        reports.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">dict</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.mongo_aggregator-module.html#manage_id_reassignment" class="summary-sig-name">manage_id_reassignment</a>(<span class="summary-sig-arg">entry</span>,
+        <span class="summary-sig-arg">reassign_id</span>,
+        <span class="summary-sig-arg">force_copy</span>)</span><br />
+      Setting the _id value on an entity if appropriate.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#manage_id_reassignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.mongo_aggregator-module.html#update_contribution_entry" class="summary-sig-name">update_contribution_entry</a>(<span class="summary-sig-arg">database</span>,
+        <span class="summary-sig-arg">entry</span>,
+        <span class="summary-sig-arg">reassign_id</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">force_copy</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Update a record of a contribution report in the provided database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_contribution_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.mongo_aggregator-module.html#update_expenditure_entry" class="summary-sig-name">update_expenditure_entry</a>(<span class="summary-sig-arg">database</span>,
+        <span class="summary-sig-arg">entry</span>,
+        <span class="summary-sig-arg">reassign_id</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">force_copy</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Update a record of a expenditure report in the provided database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_expenditure_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.mongo_aggregator-module.html#update_loan_entry" class="summary-sig-name">update_loan_entry</a>(<span class="summary-sig-arg">database</span>,
+        <span class="summary-sig-arg">entry</span>,
+        <span class="summary-sig-arg">reassign_id</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">force_copy</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Update a record of a loan report in the provided database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_loan_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.mongo_aggregator-module.html#update_entry" class="summary-sig-name">update_entry</a>(<span class="summary-sig-arg">database</span>,
+        <span class="summary-sig-arg">entry</span>,
+        <span class="summary-sig-arg">report_type</span>,
+        <span class="summary-sig-arg">reassign_id</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">force_copy</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Update a record of a contribution report in the provided database.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pycotracer'"><code class="variable-quote">'</code><code class="variable-string">pycotracer</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="manage_id_reassignment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">manage_id_reassignment</span>(<span class="sig-arg">entry</span>,
+        <span class="sig-arg">reassign_id</span>,
+        <span class="sig-arg">force_copy</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#manage_id_reassignment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Setting the _id value on an entity if appropriate.</p>
+  <p>Determines if the _id value on an entity should be set and if a 
+  shallow copy of that entity should be created if the _id property must be
+  set. If reassign_id is False, this is a no-op regardless of the value 
+  passed for force_copy. Otherwise, _id is set to the value at the key 
+  'RecordID' in the provided entry. If force_copy, a shallow copy will be 
+  made of entry before adding / updating the _id value.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The entry to modify.</li>
+        <li><strong class="pname"><code>reassign_id</code></strong> (bool) - Flag to indicate if the _id value of entry should be set to the 
+          value at entry['RecordID'].</li>
+        <li><strong class="pname"><code>force_copy</code></strong> (bool) - Flag to indicate if the entry should be shallow copied before 
+          making any changes. No copy shall be made if no operations on 
+          entry will be run.</li>
+    </ul></dd>
+    <dt>Returns: dict</dt>
+        <dd>The modified entry. Will return the shallow copy if a change was 
+          made to entry and force_copy was True.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="update_contribution_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">update_contribution_entry</span>(<span class="sig-arg">database</span>,
+        <span class="sig-arg">entry</span>,
+        <span class="sig-arg">reassign_id</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">force_copy</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_contribution_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update a record of a contribution report in the provided database.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>database</code></strong> - The MongoDB database to operate on. The contributions collection 
+          will be used from this database.</li>
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The entry to insert into the database, updating the entry with 
+          the same _id if one exists.</li>
+        <li><strong class="pname"><code>reassign_id</code></strong> (bool) - Indicates if the entry's _id value should be set to RecordID 
+          value. Defaults to True.</li>
+        <li><strong class="pname"><code>force_copy</code></strong> (bool) - Indicates if the entry should be shallow copied before being 
+          modified. If False, the passed entry and code using it may 
+          experience side-effects. Setting to True can increase memory 
+          usage. Defaults to False.</li>
+        <li><strong class="pname"><code>db</code></strong> (pymongo.database.Database)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="update_expenditure_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">update_expenditure_entry</span>(<span class="sig-arg">database</span>,
+        <span class="sig-arg">entry</span>,
+        <span class="sig-arg">reassign_id</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">force_copy</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_expenditure_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update a record of a expenditure report in the provided database.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (pymongo.database.Database) - The MongoDB database to operate on. The expenditures collection 
+          will be used from this database.</li>
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The entry to insert into the database, updating the entry with 
+          the same _id if one exists.</li>
+        <li><strong class="pname"><code>reassign_id</code></strong> (bool) - Indicates if the entry's _id value should be set to RecordID 
+          value. Defaults to True.</li>
+        <li><strong class="pname"><code>force_copy</code></strong> (bool) - Indicates if the entry should be shallow copied before being 
+          modified. If False, the passed entry and code using it may 
+          experience side-effects. Setting to True can increase memory 
+          usage. Defaults to False.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="update_loan_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">update_loan_entry</span>(<span class="sig-arg">database</span>,
+        <span class="sig-arg">entry</span>,
+        <span class="sig-arg">reassign_id</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">force_copy</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_loan_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update a record of a loan report in the provided database.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (pymongo.database.Database) - The MongoDB database to operate on. The loans collection will be 
+          used from this database.</li>
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The entry to insert into the database, updating the entry with 
+          the same _id if one exists.</li>
+        <li><strong class="pname"><code>reassign_id</code></strong> (bool) - Indicates if the entry's _id value should be set to RecordID 
+          value. Defaults to True.</li>
+        <li><strong class="pname"><code>force_copy</code></strong> (bool) - Indicates if the entry should be shallow copied before being 
+          modified. If False, the passed entry and code using it may 
+          experience side-effects. Setting to True can increase memory 
+          usage. Defaults to False.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="update_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">update_entry</span>(<span class="sig-arg">database</span>,
+        <span class="sig-arg">entry</span>,
+        <span class="sig-arg">report_type</span>,
+        <span class="sig-arg">reassign_id</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">force_copy</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.mongo_aggregator-pysrc.html#update_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update a record of a contribution report in the provided database.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (pymongo.database.Database) - The MongoDB database to operate on. The contributions collection 
+          will be used from this database.</li>
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The entry to insert into the database, updating the entry with 
+          the same _id if one exists.</li>
+        <li><strong class="pname"><code>report_type</code></strong> (str) - The type of report being updated. Should be one of the strings in
+          constants.REPORT_TYPES.</li>
+        <li><strong class="pname"><code>reassign_id</code></strong> (bool) - Indicates if the entry's _id value should be set to RecordID 
+          value. Defaults to True.</li>
+        <li><strong class="pname"><code>force_copy</code></strong> (bool) - Indicates if the entry should be shallow copied before being 
+          modified. If False, the passed entry and code using it may 
+          experience side-effects. Setting to True can increase memory 
+          usage. Defaults to False.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if the requested report type could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Tue Jul 30 07:58:42 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pycotracer.report_interpreters</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pycotracer-module.html">Package&nbsp;pycotracer</a> ::
+        Module&nbsp;report_interpreters
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pycotracer.report_interpreters-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pycotracer.report_interpreters-module.html">Module pycotracer.report_interpreters</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Downloaded data interpretation strategies for pycotracer.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Interpretation stategies that parse certain data fields like those with boolean</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">data, dates, and numerical values. Strategies are specific to report types from</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Colorado Transparency in Contribution and Expenditure Reporting Campaign Finance</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">system data (TRACER)</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">@author: A. Samuel Pottinger (samnsparky, Gleap LLC)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">@organization: Gleap LLC (gleap.org)</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">@copyright: 2013</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">@license: GNU GPL v3</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="parse_iso_str"></a><div id="parse_iso_str-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="parse_iso_str-toggle" onclick="return toggle('parse_iso_str');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#parse_iso_str">parse_iso_str</a><tt class="py-op">(</tt><tt class="py-param">date_str</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_iso_str-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_iso_str-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"""Convienence function to parse an ISO 8601 datetime without timezone info.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    Convienece function to parse an ISO 8601 datetime string wihtout any</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">    timezone information. This is not a complete ISO 8601 parser, supporting a</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">    very limited subset of the standard.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    @param date_str: The ISO 8601 string to parse.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    @type date_str: str</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The parsed datetime.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: datetime.datetime</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">strptime</tt><tt class="py-op">(</tt><tt class="py-name">date_str</tt><tt class="py-op">,</tt> <tt class="py-string">'%Y-%m-%d %H:%M:%S'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="parse_yes_no_str"></a><div id="parse_yes_no_str-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="parse_yes_no_str-toggle" onclick="return toggle('parse_yes_no_str');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#parse_yes_no_str">parse_yes_no_str</a><tt class="py-op">(</tt><tt class="py-param">bool_str</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_yes_no_str-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_yes_no_str-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-docstring">"""Parse a string serialization of boolean data as yes (Y) or no (N).</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    Prase a string serialization of boolean data where True is "Y" and False is</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    "N" case-insensitive.</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    @param bool_str: The string to parse.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    @type bool_str: str</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The interpreted string.</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: bool</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if the passed string is not equal to 'N' or 'Y'</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        case insensitive.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-name">lower_bool_str</tt> <tt class="py-op">=</tt> <tt class="py-name">bool_str</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">lower_bool_str</tt> <tt class="py-op">==</tt> <tt class="py-string">'n'</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">lower_bool_str</tt> <tt class="py-op">==</tt> <tt class="py-string">'y'</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'%s not a valid boolean string.'</tt> <tt class="py-op">%</tt> <tt class="py-name">bool_str</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="interpret_contribution_entry"></a><div id="interpret_contribution_entry-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="interpret_contribution_entry-toggle" onclick="return toggle('interpret_contribution_entry');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_contribution_entry">interpret_contribution_entry</a><tt class="py-op">(</tt><tt class="py-param">entry</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_contribution_entry-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_contribution_entry-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within a CO-TRACER contributions report.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the contribution amount, contribution date, filed date, amended,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    and amendment fields of the provided entry. All dates (contribution and</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">    filed) are interpreted together and, if any fails, all will retain their</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    original value. Likewise, amended and amendment are interpreted together and</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    if one is malformed, both will retain their original value. Entry may be</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    edited in place and side-effects are possible in coupled code. However,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    client code should use the return value to guard against future changes.</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if floating point values are successfully interpreted</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    (ContributionAmount) or not respectively.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if ISO 8601 strings are successfully interpreted</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    (ContributionDate and FiledDate) or not respectively.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entry if boolean strings are successfully interpreted</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    (Amended and Amendment) or not respectively.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    @param entry: The contribution report data to manipulate / interpret.</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">    @type entry: dict</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in entry.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">new_contribution_amount</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ContributionAmount'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ContributionAmount'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">new_contribution_amount</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-name">contribution_date</tt> <tt class="py-op">=</tt> <tt id="link-0" class="py-name" targets="Function pycotracer.report_interpreters.parse_iso_str()=pycotracer.report_interpreters-module.html#parse_iso_str"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-0', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ContributionDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">filed_date</tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-1', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ContributionDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">contribution_date</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">filed_date</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt>  </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">amended</tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name" targets="Function pycotracer.report_interpreters.parse_yes_no_str()=pycotracer.report_interpreters-module.html#parse_yes_no_str"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-2', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">amendment</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-3', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amended</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amendment</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">entry</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="interpret_contributions_data"></a><div id="interpret_contributions_data-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="interpret_contributions_data-toggle" onclick="return toggle('interpret_contributions_data');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_contributions_data">interpret_contributions_data</a><tt class="py-op">(</tt><tt class="py-param">entries</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_contributions_data-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_contributions_data-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within CO-TRACER contributions reports.</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the contribution amount, contribution date, filed date, amended,</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">    and amendment fields of the provided entries. All dates (contribution and</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    filed) are interpreted together and, if any fails, all within an entry will</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    retain their original value. However, other entries in the same collection</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    will be interpreted and edited independently. Likewise, amended and</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">    amendment are interpreted together and if one is malformed, both will retain</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    its original value in that entry. Entries may be edited in place and</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">    side-effects are possible in coupled code. However,</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    client code should use the return value to guard against future changes.</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if floating point values were successfully interpreted</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    (ContributionAmount) or not respectively for that entry.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if ISO 8601 strings were successfully interpreted</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">    (ContributionDate and FiledDate) or not respectively for that entry.</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entries if boolean strings were successfully</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">    interpreted (Amended and Amendment) or not respectively for that entry.</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">    @param entries: The contribution report data to manipulate / interpret.</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">    @type entries: collection of dict</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in atleast</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        one of the provided entries.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name" targets="Function pycotracer.report_interpreters.interpret_contribution_entry()=pycotracer.report_interpreters-module.html#interpret_contribution_entry"><a title="pycotracer.report_interpreters.interpret_contribution_entry" class="py-name" href="#" onclick="return doclink('link-4', 'interpret_contribution_entry', 'link-4');">interpret_contribution_entry</a></tt><tt class="py-op">,</tt> <tt class="py-name">entries</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="interpret_expenditure_entry"></a><div id="interpret_expenditure_entry-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="interpret_expenditure_entry-toggle" onclick="return toggle('interpret_expenditure_entry');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_expenditure_entry">interpret_expenditure_entry</a><tt class="py-op">(</tt><tt class="py-param">entry</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_expenditure_entry-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_expenditure_entry-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within a CO-TRACER expediture report.</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the expenditure amount, expenditure date, filed date, amended,</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">    and amendment fields of the provided entry. All dates (expenditure and</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">    filed) are interpreted together and, if any fails, all will retain their</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    original value. Likewise, amended and amendment are interpreted together and</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">    if one is malformed, both will retain their original value. Entry may be</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">    edited in place and side-effects are possible in coupled code. However,</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">    client code should use the return value to guard against future changes.</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if floating point values are successfully interpreted</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">    (ExpenditureAmount) or not respectively.</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if ISO 8601 strings are successfully interpreted</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    (ExpenditureDate and FiledDate) or not respectively.</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entry if boolean strings are successfully interpreted</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">    (Amended and Amendment) or not respectively.</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">    @param entry: The expenditure report data to manipulate / interpret.</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">    @type entry: dict</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in entry.</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-name">expenditure_amount</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ExpenditureAmount'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ExpenditureAmount'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">expenditure_amount</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-name">expenditure_date</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-5', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ExpenditureDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-name">filed_date</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-6', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'ExpenditureDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">expenditure_date</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">filed_date</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">amended</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-7', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">amendment</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-8', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amended</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amendment</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">entry</tt> </tt>
+</div><a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"> </tt>
+<a name="interpret_expenditure_data"></a><div id="interpret_expenditure_data-def"><a name="L200"></a><tt class="py-lineno">200</tt> <a class="py-toggle" href="#" id="interpret_expenditure_data-toggle" onclick="return toggle('interpret_expenditure_data');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_expenditure_data">interpret_expenditure_data</a><tt class="py-op">(</tt><tt class="py-param">entries</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_expenditure_data-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_expenditure_data-expanded"><a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within CO-TRACER expenditure reports.</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the expenditure amount, expenditure date, filed date, amended,</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"><tt class="py-docstring">    and amendment fields of the provided entries. All dates (expenditure and</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"><tt class="py-docstring">    filed) are interpreted together and, if any fails, all within an entry will</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"><tt class="py-docstring">    retain their original value. However, other entries in the same collection</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt class="py-docstring">    will be interpreted and edited independently. Likewise, amended and</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring">    amendment are interpreted together and if one is malformed, both will retain</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring">    their original value in that entry. Entries may be edited in place and</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring">    side-effects are possible in coupled code. However, client code should use</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring">    the return value to guard against future changes.</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if floating point values were successfully interpreted</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">    (ExpenditureAmount) or not respectively for that entry.</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if ISO 8601 strings were successfully interpreted</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring">    (ExpenditureDate and FiledDate) or not respectively for that entry.</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entries if boolean strings were successfully</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"><tt class="py-docstring">    interpreted (Amended and Amendment) or not respectively for that entry.</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-docstring">    @param entries: The expediture report data to manipulate / interpret.</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-docstring">    @type entries: collection of dict</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in atleast</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"><tt class="py-docstring">        one of the provided entries.</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Function pycotracer.report_interpreters.interpret_expenditure_entry()=pycotracer.report_interpreters-module.html#interpret_expenditure_entry"><a title="pycotracer.report_interpreters.interpret_expenditure_entry" class="py-name" href="#" onclick="return doclink('link-9', 'interpret_expenditure_entry', 'link-9');">interpret_expenditure_entry</a></tt><tt class="py-op">,</tt> <tt class="py-name">entries</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"> </tt>
+<a name="interpret_loan_entry"></a><div id="interpret_loan_entry-def"><a name="L234"></a><tt class="py-lineno">234</tt> <a class="py-toggle" href="#" id="interpret_loan_entry-toggle" onclick="return toggle('interpret_loan_entry');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_loan_entry">interpret_loan_entry</a><tt class="py-op">(</tt><tt class="py-param">entry</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_loan_entry-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_loan_entry-expanded"><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within a CO-TRACER loan report.</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the payment amount, loan amount, interest rate, interest payment,</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-docstring">    loan balance, payment date, filed date, loan date, amended, and amendment</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"><tt class="py-docstring">    fields of the provided entry. All dates (payment, filed, and loan) are</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"><tt class="py-docstring">    interpreted together and, if any fails, all will retain their original</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"><tt class="py-docstring">    value. Likewise, amended and amendment are interpreted together and</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"><tt class="py-docstring">    if one is malformed, both will retain their original value. Finally,</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line"><tt class="py-docstring">    the payment amount, loan amount, interest rate, interest payment, and</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-docstring">    loan balance will be interpreted transactionally and, if any fail, all</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-docstring">    will retain their original value.</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-docstring">    Entry may be edited in place and side-effects are possible in coupled code.</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-docstring">    However, client code should use the return value to guard against future</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-docstring">    changes.</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if floating point values are successfully interpreted</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"><tt class="py-docstring">    or not respectively.</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entry if ISO 8601 strings are successfully interpreted</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line"><tt class="py-docstring">    or not respectively.</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entry if boolean strings are successfully interpreted</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-docstring">    or not respectively.</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"><tt class="py-docstring">    @param entry: The loan report data to manipulate / interpret.</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-docstring">    @type entry: dict</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in entry.</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">        <tt class="py-name">payment_amount</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'PaymentAmount'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">        <tt class="py-name">loan_amount</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanAmount'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-name">interest_rate</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'InterestRate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">        <tt class="py-name">interest_payment</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'InterestPayment'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">        <tt class="py-name">loan_balance</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanBalance'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'PaymentAmount'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">payment_amount</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanAmount'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">loan_amount</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'InterestRate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">interest_rate</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'InterestPayment'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">interest_payment</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanBalance'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">loan_balance</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'AmountsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">        <tt class="py-name">payment_date</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-10', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'PaymentDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">        <tt class="py-name">filed_date</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-11', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">        <tt class="py-name">loan_date</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="pycotracer.report_interpreters.parse_iso_str" class="py-name" href="#" onclick="return doclink('link-12', 'parse_iso_str', 'link-0');">parse_iso_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanDate'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'PaymentDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">payment_date</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'FiledDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">filed_date</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'LoanDate'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">loan_date</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'DatesInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line"> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">        <tt class="py-name">amended</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-13', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">        <tt class="py-name">amendment</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="pycotracer.report_interpreters.parse_yes_no_str" class="py-name" href="#" onclick="return doclink('link-14', 'parse_yes_no_str', 'link-2');">parse_yes_no_str</a></tt><tt class="py-op">(</tt><tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amended'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amended</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'Amendment'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">amendment</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">        <tt class="py-name">entry</tt><tt class="py-op">[</tt><tt class="py-string">'BooleanFieldsInterpreted'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line"> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">entry</tt> </tt>
+</div><a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line"> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line"> </tt>
+<a name="interpret_loan_data"></a><div id="interpret_loan_data-def"><a name="L306"></a><tt class="py-lineno">306</tt> <a class="py-toggle" href="#" id="interpret_loan_data-toggle" onclick="return toggle('interpret_loan_data');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pycotracer.report_interpreters-module.html#interpret_loan_data">interpret_loan_data</a><tt class="py-op">(</tt><tt class="py-param">entries</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="interpret_loan_data-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="interpret_loan_data-expanded"><a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">    <tt class="py-docstring">"""Interpret data fields within CO-TRACER expenditure reports.</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-docstring">    Interpret the payment amount, loan amount, interest rate, interest payment,</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line"><tt class="py-docstring">    loan balance, payment date, filed date, loan date, amended, and amendment</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line"><tt class="py-docstring">    fields of the provided entries. All dates are interpreted together and, if</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line"><tt class="py-docstring">    any fails, all within an entry will retain their original value. However,</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line"><tt class="py-docstring">    other entries in the same collection will be interpreted and edited</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line"><tt class="py-docstring">    independently. Likewise, amended and amendment are interpreted together and</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line"><tt class="py-docstring">    if one is malformed, both will retain their original value in that entry.</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line"><tt class="py-docstring">    Finally, all floating point amounts are interpreted transactionally and,</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line"><tt class="py-docstring">    again, all will retain their original value if any fail.</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line"><tt class="py-docstring">    Entries may be edited in place and side-effects are possible in coupled</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line"><tt class="py-docstring">    code. However, client code should use the return value to guard against</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line"><tt class="py-docstring">    future changes.</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'AmountsInterpreted' will be set to True or False in</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if floating point values were successfully interpreted</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line"><tt class="py-docstring">    or not respectively for that entry.</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'DatesInterpreted' will be set to True or False in</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"><tt class="py-docstring">    the returned entries if ISO 8601 strings were successfully interpreted</tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line"><tt class="py-docstring">    or not respectively for that entry.</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line"><tt class="py-docstring">    A value with the key 'BooleanFieldsInterpreted' will be set to True or</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line"><tt class="py-docstring">    False in the returned entries if boolean strings were successfully</tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line"><tt class="py-docstring">    interpreted or not respectively for that entry.</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"><tt class="py-docstring">    @param entries: The loan report data to manipulate / interpret.</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line"><tt class="py-docstring">    @type entries: collection of dict</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line"><tt class="py-docstring">    @return: The entry passed </tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line"><tt class="py-docstring">    @raise ValueError: Raised if any expected field cannot be found in atleast</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line"><tt class="py-docstring">        one of the provided entries.</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt id="link-15" class="py-name" targets="Function pycotracer.report_interpreters.interpret_loan_entry()=pycotracer.report_interpreters-module.html#interpret_loan_entry"><a title="pycotracer.report_interpreters.interpret_loan_entry" class="py-name" href="#" onclick="return doclink('link-15', 'interpret_loan_entry', 'link-15');">interpret_loan_entry</a></tt><tt class="py-op">,</tt> <tt class="py-name">entries</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Tue Jul 30 07:58:42 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

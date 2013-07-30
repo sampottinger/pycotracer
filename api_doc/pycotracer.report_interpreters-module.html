@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pycotracer.report_interpreters</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pycotracer-module.html">Package&nbsp;pycotracer</a> ::
+        Module&nbsp;report_interpreters
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pycotracer.report_interpreters-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module report_interpreters</h1><p class="nomargin-top"><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html">source&nbsp;code</a></span></p>
+<p>Downloaded data interpretation strategies for pycotracer.</p>
+  <p>Interpretation stategies that parse certain data fields like those 
+  with boolean data, dates, and numerical values. Strategies are specific 
+  to report types from Colorado Transparency in Contribution and 
+  Expenditure Reporting Campaign Finance system data (TRACER)</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        A. Samuel Pottinger (samnsparky, Gleap LLC)
+      </p>
+      <p><strong>Organization:</strong>
+        Gleap LLC (gleap.org)
+      </p>
+      <p><strong>Copyright:</strong>
+        2013
+      </p>
+      <p><strong>License:</strong>
+        GNU GPL v3
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">datetime.datetime</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#parse_iso_str" class="summary-sig-name">parse_iso_str</a>(<span class="summary-sig-arg">date_str</span>)</span><br />
+      Convienence function to parse an ISO 8601 datetime without timezone 
+      info.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#parse_iso_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#parse_yes_no_str" class="summary-sig-name">parse_yes_no_str</a>(<span class="summary-sig-arg">bool_str</span>)</span><br />
+      Parse a string serialization of boolean data as yes (Y) or no (N).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#parse_yes_no_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_contribution_entry" class="summary-sig-name">interpret_contribution_entry</a>(<span class="summary-sig-arg">entry</span>)</span><br />
+      Interpret data fields within a CO-TRACER contributions report.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_contribution_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_contributions_data" class="summary-sig-name">interpret_contributions_data</a>(<span class="summary-sig-arg">entries</span>)</span><br />
+      Interpret data fields within CO-TRACER contributions reports.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_contributions_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_expenditure_entry" class="summary-sig-name">interpret_expenditure_entry</a>(<span class="summary-sig-arg">entry</span>)</span><br />
+      Interpret data fields within a CO-TRACER expediture report.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_expenditure_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_expenditure_data" class="summary-sig-name">interpret_expenditure_data</a>(<span class="summary-sig-arg">entries</span>)</span><br />
+      Interpret data fields within CO-TRACER expenditure reports.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_expenditure_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_loan_entry" class="summary-sig-name">interpret_loan_entry</a>(<span class="summary-sig-arg">entry</span>)</span><br />
+      Interpret data fields within a CO-TRACER loan report.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_loan_entry">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pycotracer.report_interpreters-module.html#interpret_loan_data" class="summary-sig-name">interpret_loan_data</a>(<span class="summary-sig-arg">entries</span>)</span><br />
+      Interpret data fields within CO-TRACER expenditure reports.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_loan_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pycotracer'"><code class="variable-quote">'</code><code class="variable-string">pycotracer</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="parse_iso_str"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse_iso_str</span>(<span class="sig-arg">date_str</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#parse_iso_str">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Convienence function to parse an ISO 8601 datetime without timezone 
+  info.</p>
+  <p>Convienece function to parse an ISO 8601 datetime string wihtout any 
+  timezone information. This is not a complete ISO 8601 parser, supporting 
+  a very limited subset of the standard.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>date_str</code></strong> (str) - The ISO 8601 string to parse.</li>
+    </ul></dd>
+    <dt>Returns: datetime.datetime</dt>
+        <dd>The parsed datetime.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse_yes_no_str"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse_yes_no_str</span>(<span class="sig-arg">bool_str</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#parse_yes_no_str">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Parse a string serialization of boolean data as yes (Y) or no (N).</p>
+  <p>Prase a string serialization of boolean data where True is 
+  &quot;Y&quot; and False is &quot;N&quot; case-insensitive.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>bool_str</code></strong> (str) - The string to parse.</li>
+    </ul></dd>
+    <dt>Returns: bool</dt>
+        <dd>The interpreted string.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if the passed string is not equal to 'N' or 'Y' case 
+        insensitive.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_contribution_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_contribution_entry</span>(<span class="sig-arg">entry</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_contribution_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within a CO-TRACER contributions report.</p>
+  <p>Interpret the contribution amount, contribution date, filed date, 
+  amended, and amendment fields of the provided entry. All dates 
+  (contribution and filed) are interpreted together and, if any fails, all 
+  will retain their original value. Likewise, amended and amendment are 
+  interpreted together and if one is malformed, both will retain their 
+  original value. Entry may be edited in place and side-effects are 
+  possible in coupled code. However, client code should use the return 
+  value to guard against future changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entry if floating point values are successfully 
+  interpreted (ContributionAmount) or not respectively.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entry if ISO 8601 strings are successfully interpreted 
+  (ContributionDate and FiledDate) or not respectively.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entry if boolean strings are successfully 
+  interpreted (Amended and Amendment) or not respectively.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The contribution report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in entry.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_contributions_data"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_contributions_data</span>(<span class="sig-arg">entries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_contributions_data">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within CO-TRACER contributions reports.</p>
+  <p>Interpret the contribution amount, contribution date, filed date, 
+  amended, and amendment fields of the provided entries. All dates 
+  (contribution and filed) are interpreted together and, if any fails, all 
+  within an entry will retain their original value. However, other entries 
+  in the same collection will be interpreted and edited independently. 
+  Likewise, amended and amendment are interpreted together and if one is 
+  malformed, both will retain its original value in that entry. Entries may
+  be edited in place and side-effects are possible in coupled code. 
+  However, client code should use the return value to guard against future 
+  changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entries if floating point values were successfully 
+  interpreted (ContributionAmount) or not respectively for that entry.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entries if ISO 8601 strings were successfully interpreted
+  (ContributionDate and FiledDate) or not respectively for that entry.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entries if boolean strings were successfully 
+  interpreted (Amended and Amendment) or not respectively for that 
+  entry.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entries</code></strong> (collection of dict) - The contribution report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in atleast one of the 
+        provided entries.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_expenditure_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_expenditure_entry</span>(<span class="sig-arg">entry</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_expenditure_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within a CO-TRACER expediture report.</p>
+  <p>Interpret the expenditure amount, expenditure date, filed date, 
+  amended, and amendment fields of the provided entry. All dates 
+  (expenditure and filed) are interpreted together and, if any fails, all 
+  will retain their original value. Likewise, amended and amendment are 
+  interpreted together and if one is malformed, both will retain their 
+  original value. Entry may be edited in place and side-effects are 
+  possible in coupled code. However, client code should use the return 
+  value to guard against future changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entry if floating point values are successfully 
+  interpreted (ExpenditureAmount) or not respectively.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entry if ISO 8601 strings are successfully interpreted 
+  (ExpenditureDate and FiledDate) or not respectively.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entry if boolean strings are successfully 
+  interpreted (Amended and Amendment) or not respectively.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The expenditure report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in entry.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_expenditure_data"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_expenditure_data</span>(<span class="sig-arg">entries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_expenditure_data">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within CO-TRACER expenditure reports.</p>
+  <p>Interpret the expenditure amount, expenditure date, filed date, 
+  amended, and amendment fields of the provided entries. All dates 
+  (expenditure and filed) are interpreted together and, if any fails, all 
+  within an entry will retain their original value. However, other entries 
+  in the same collection will be interpreted and edited independently. 
+  Likewise, amended and amendment are interpreted together and if one is 
+  malformed, both will retain their original value in that entry. Entries 
+  may be edited in place and side-effects are possible in coupled code. 
+  However, client code should use the return value to guard against future 
+  changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entries if floating point values were successfully 
+  interpreted (ExpenditureAmount) or not respectively for that entry.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entries if ISO 8601 strings were successfully interpreted
+  (ExpenditureDate and FiledDate) or not respectively for that entry.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entries if boolean strings were successfully 
+  interpreted (Amended and Amendment) or not respectively for that 
+  entry.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entries</code></strong> (collection of dict) - The expediture report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in atleast one of the 
+        provided entries.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_loan_entry"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_loan_entry</span>(<span class="sig-arg">entry</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_loan_entry">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within a CO-TRACER loan report.</p>
+  <p>Interpret the payment amount, loan amount, interest rate, interest 
+  payment, loan balance, payment date, filed date, loan date, amended, and 
+  amendment fields of the provided entry. All dates (payment, filed, and 
+  loan) are interpreted together and, if any fails, all will retain their 
+  original value. Likewise, amended and amendment are interpreted together 
+  and if one is malformed, both will retain their original value. Finally, 
+  the payment amount, loan amount, interest rate, interest payment, and 
+  loan balance will be interpreted transactionally and, if any fail, all 
+  will retain their original value.</p>
+  <p>Entry may be edited in place and side-effects are possible in coupled 
+  code. However, client code should use the return value to guard against 
+  future changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entry if floating point values are successfully 
+  interpreted or not respectively.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entry if ISO 8601 strings are successfully interpreted or
+  not respectively.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entry if boolean strings are successfully 
+  interpreted or not respectively.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entry</code></strong> (dict) - The loan report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in entry.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="interpret_loan_data"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">interpret_loan_data</span>(<span class="sig-arg">entries</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pycotracer.report_interpreters-pysrc.html#interpret_loan_data">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Interpret data fields within CO-TRACER expenditure reports.</p>
+  <p>Interpret the payment amount, loan amount, interest rate, interest 
+  payment, loan balance, payment date, filed date, loan date, amended, and 
+  amendment fields of the provided entries. All dates are interpreted 
+  together and, if any fails, all within an entry will retain their 
+  original value. However, other entries in the same collection will be 
+  interpreted and edited independently. Likewise, amended and amendment are
+  interpreted together and if one is malformed, both will retain their 
+  original value in that entry. Finally, all floating point amounts are 
+  interpreted transactionally and, again, all will retain their original 
+  value if any fail.</p>
+  <p>Entries may be edited in place and side-effects are possible in 
+  coupled code. However, client code should use the return value to guard 
+  against future changes.</p>
+  <p>A value with the key 'AmountsInterpreted' will be set to True or False
+  in the returned entries if floating point values were successfully 
+  interpreted or not respectively for that entry.</p>
+  <p>A value with the key 'DatesInterpreted' will be set to True or False 
+  in the returned entries if ISO 8601 strings were successfully interpreted
+  or not respectively for that entry.</p>
+  <p>A value with the key 'BooleanFieldsInterpreted' will be set to True or
+  False in the returned entries if boolean strings were successfully 
+  interpreted or not respectively for that entry.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>entries</code></strong> (collection of dict) - The loan report data to manipulate / interpret.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>The entry passed</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Raised if any expected field cannot be found in atleast one of the 
+        provided entries.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pycotracer-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Tue Jul 30 07:58:42 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
