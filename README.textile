@@ -1,6 +1,6 @@
 h1. pycotracer
 
-Micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system.
+Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system.
 
 h2. Authors and License
 
@@ -57,4 +57,4 @@ Some unit tests will require the "pymox":https://code.google.com/p/pymox/ librar
 
 h2. Technologies and Resources Used
 
-This pure-Python micro-library uses the Python standard library and does not require the installation of additional modules. That being said, some unit tests use the "pymox":https://code.google.com/p/pymox/ library for dependency injection and, while not including the library directly, mongo_aggregator operates on structures from "pymongo":http://api.mongodb.org/python/current/.
+This pure-Python micro-library uses the Python standard library and does not require the installation of additional modules. That being said, some unit tests use the "pymox":https://code.google.com/p/pymox/ library for dependency injection and, while not including the library directly, mongo_aggregator operates on structures from "pymongo":http://api.mongodb.org/python/current/. It has been tested with Python 2.7.3.
