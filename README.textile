@@ -50,6 +50,8 @@ h2. Testing
 
 @bash run_tests.bash@
 
+Some unit tests will require the "pymox":https://code.google.com/p/pymox/ library for dependency injection.
+
 
 h2. Technologies and Resources Used
 
