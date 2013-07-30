@@ -1,13 +1,6 @@
-Python micro-library providing programmatic read access to the Colorado Transparency in Contribution and Expenditure Reporting system.
+Although Colorado enjoys excellent campaign finanance reporting regulation, the state publishes that data through single file archives containing CSV reports. The Colorado Secretary of State Elections Divison posts reports (contribution, expenditure, and loan data) through the Colorado Transparency in Contribution and Expenditure Reporting system. This micro-library provides programmatic access to that data source through automated URL generation, file download, archive extraction, and data interpretation.
 
-== Installation ==
-
-pip install pycotracer
-
-Alternatively, this pure-Python micro-library can be included directly in client projects.
-
-
-== Quickstart ==
+This is an un-official library for retrieving campaign finance data and is not supported or endorsed by the State of Colorado.
 
 >>> import pycotracer
 >>> 
@@ -28,30 +21,3 @@ Alternatively, this pure-Python micro-library can be included directly in client
 470
 >>> loan_data_2012[0].keys()
 ['City', 'Zip', 'CommitteeType', 'State', 'Type', 'Amended', ...]
-Background and Motivation
-
-Although Colorado enjoys excellent campaign finanance reporting regulation, the state publishes that data through single file archives containing CSV reports. The Colorado Secretary of State Elections Divison posts reports (contribution, expenditure, and loan data) through the Colorado Transparency in Contribution and Expenditure Reporting system. This micro-library provides programmatic access to that data source through automated URL generation, file download, archive extraction, and data interpretation.
-
-This is an un-official library for retrieving campaign finance data and is not supported or endorsed by the State of Colorado.
-
-
-== Full API ==
-
-See the pycotracer/api_doc/index.html.
-
-
-== Development Environment and Standards ==
-
-All code should conform to the Google Python Style Guidelines. However, instead of pychecker, please use pylint to confirm code style. Unit tests must recieve atleast a 8/10 score from pylint while non-testing code must recieve atleast 9/10. This library maintains a minimum of 80% code coverage by automated unit test and all inline documentation should follow the epydoc format.
-
-
-== Testing ==
-
-bash run_tests.bash
-
-The run_tests.bash script is in the pycotracer subdirectory. Some unit tests will require the pymox library for dependency injection.
-
-
-== Technologies and Resources Used ==
-
-This pure-Python micro-library uses the Python standard library and does not require the installation of additional modules. That being said, some unit tests use the pymox library for dependency injection and, while not including the library directly, mongo_aggregator operates on structures from pymongo. It has been tested with Python 2.7.3.
