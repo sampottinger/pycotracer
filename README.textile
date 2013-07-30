@@ -9,6 +9,13 @@ h2. Authors and License
 Released under the "GNU GPL v3":http://www.gnu.org/licenses/gpl.html license.
 
 
+h2. Installation
+
+@pip install pycotracer@
+
+Alternatively, this pure-Python micro-library can be included directly in client projects.
+
+
 h2. Quickstart
 
 bc.. >>> import pycotracer
