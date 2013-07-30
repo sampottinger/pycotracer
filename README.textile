@@ -3,12 +3,14 @@ h1. pycotracer
 Micro-library providing programmatic access to "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx campaign finance data.
 
 h2. Authors and License
+
 (c) 2013 "Sam Pottinger":http://gleap.org
 (c) 2013 "Ned McClain":http://www.appliedtrust.com/company/bios/ned-mcclain
 Released under the "GNU GPL v3":http://www.gnu.org/licenses/gpl.html license.
 
 
 h2. Quickstart
+
 bc..
 >>> import pycotracer
 >>> 
