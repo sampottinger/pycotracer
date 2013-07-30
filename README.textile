@@ -11,8 +11,7 @@ Released under the "GNU GPL v3":http://www.gnu.org/licenses/gpl.html license.
 
 h2. Quickstart
 
-bc..
->>> import pycotracer
+bc.. >>> import pycotracer
 >>> 
 >>> # Report types: REPORT_LOAN_DATA, REPORT_CONTRIB_DATA, REPORT_EXPEND_DATA
 >>> all_2013_reports = pycotracer.get_report(2013)
