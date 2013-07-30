@@ -1,6 +1,6 @@
 h1. pycotracer
 
-Micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system. This is an un-official library for retrieving that campaign finance data and is not supported or endorsed by the State of Colorado.
+Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system.
 
 h2. Authors and License
 
@@ -35,6 +35,8 @@ h2. Background and Motivation
 
 Although Colorado enjoys excellent campaign finanance reporting regulation, the state publishes that data through single file archives containing CSV reports. The Colorado Secretary of State Elections Divison posts reports (contribution, expenditure, and loan data) through the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system. This micro-library provides programmatic access to that data source through automated URL generation, file download, archive extraction, and data interpretation.
 
+This is an un-official library for retrieving campaign finance data and is not supported or endorsed by the State of Colorado.
+
 
 h2. Full API
 
@@ -50,9 +52,9 @@ h2. Testing
 
 @bash run_tests.bash@
 
-The run_tests.bash script is in the pycotracer subdirectory.
+The run_tests.bash script is in the pycotracer subdirectory. Some unit tests will require the "pymox":https://code.google.com/p/pymox/ library for dependency injection.
 
 
 h2. Technologies and Resources Used
 
-This pure-Python micro-library uses the Python standard library and does not require the installation of additional modules. That being said, some unit tests use the "pymox":https://code.google.com/p/pymox/ library for dependency injection and, while not including the library directly, mongo_aggregator operates on structures from "pymongo":http://api.mongodb.org/python/current/.
+This pure-Python micro-library uses the Python standard library and does not require the installation of additional modules. That being said, some unit tests use the "pymox":https://code.google.com/p/pymox/ library for dependency injection and, while not including the library directly, mongo_aggregator operates on structures from "pymongo":http://api.mongodb.org/python/current/. It has been tested with Python 2.7.3.
