@@ -38,7 +38,7 @@ Although Colorado enjoys excellent campaign finanance reporting regulation, the 
 
 h2. Full API
 
-See the api_doc/index.html file in the api_doc subdirectory.
+See the pycotracer/api_doc/index.html.
 
 
 h2. Development Environment and Standards
@@ -49,6 +49,8 @@ All code should conform to the "Google Python Style Guidelines":http://google-st
 h2. Testing
 
 @bash run_tests.bash@
+
+The run_tests.bash script is in the pycotracer subdirectory.
 
 
 h2. Technologies and Resources Used
