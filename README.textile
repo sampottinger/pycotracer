@@ -1,6 +1,6 @@
 h1. pycotracer
 
-Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting (TRACER)":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx system.
+Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx or TRACER system.
 
 h2. Authors and License
 
