@@ -23,6 +23,7 @@ FIELD_TRANSFORM_INDEX = {
     'CO_ID': 'commiteeID',
     'MI': 'middleInitial',
     'ContributionAmount': 'amount',
+    'ExpenditureAmount': 'amount',
     'LoanDate': 'loanStartDate',
     'PaymentDate': 'date'
 }
@@ -75,7 +76,19 @@ class UpdateStrategyFactory:
 
 
 def cleanEntry(entry):
+    """Consolidate some entry attributes and rename a few others.
+
+    Consolidate address attributes into a single field and replace some field
+    names with others as described in FIELD_TRANSFORM_INDEX.
+
+    @param entry: The entry attributes to update.
+    @type entry: dict
+    @return: Entry copy after running clean operations
+    @rtype: dict
+    """
     newEntry = {}
+
+    print entry
 
     if 'Address1' in entry:
         address = entry['Address1']
@@ -86,20 +99,21 @@ def cleanEntry(entry):
         del entry['Address2']
 
     for key in entry.keys():
+
+        if key != None:
         
-        if key in FIELD_TRANSFORM_INDEX:
-            newKey = FIELD_TRANSFORM_INDEX[key]
-        else:
-            newKey = key
-        
-        newKey = newKey[:1].lower() + newKey[1:]
-        newEntry[newKey] = entry[key]
+            if key in FIELD_TRANSFORM_INDEX:
+                newKey = FIELD_TRANSFORM_INDEX[key]
+            else:
+                newKey = key
+            
+            newKey = newKey[:1].lower() + newKey[1:]
+            newEntry[newKey] = entry[key]
 
     return newEntry
 
 
-def update_contribution_entry(database, entry, reassign_id=True,
-    force_copy=False):
+def update_contribution_entry(database, entry):
     """Update a record of a contribution report in the provided database.
 
     @param database: The MongoDB database to operate on. The contributions
@@ -108,21 +122,16 @@ def update_contribution_entry(database, entry, reassign_id=True,
     @param entry: The entry to insert into the database, updating the entry with
         the same _id if one exists.
     @type entry: dict
-    @keyword reassign_id: Indicates if the entry's _id value should be set to
-        recordID value. Defaults to True.
-    @type reassign_id: bool
-    @keyword force_copy: Indicates if the entry should be shallow copied before
-        being modified. If False, the passed entry and code using it may
-        experience side-effects. Setting to True can increase memory usage.
-        Defaults to False.
-    @type force_copy: bool
     """
     entry = cleanEntry(entry)
-    database.contributions.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
+    database.contributions.update(
+        {'recordID': entry['recordID']},
+        {'$set': entry},
+        upsert=True
+    )
 
 
-def update_expenditure_entry(database, entry, reassign_id=True,
-    force_copy=False):
+def update_expenditure_entry(database, entry):
     """Update a record of a expenditure report in the provided database.
 
     @param db: The MongoDB database to operate on. The expenditures collection
@@ -131,20 +140,16 @@ def update_expenditure_entry(database, entry, reassign_id=True,
     @param entry: The entry to insert into the database, updating the entry with
         the same _id if one exists.
     @type entry: dict
-    @keyword reassign_id: Indicates if the entry's _id value should be set to
-        recordID value. Defaults to True.
-    @type reassign_id: bool
-    @keyword force_copy: Indicates if the entry should be shallow copied before
-        being modified. If False, the passed entry and code using it may
-        experience side-effects. Setting to True can increase memory usage.
-        Defaults to False.
-    @type force_copy: bool
     """
     entry = cleanEntry(entry)
-    database.expenditures.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
+    database.expenditures.update(
+        {'recordID': entry['recordID']},
+        {'$set': entry},
+        upsert=True
+    )
 
 
-def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
+def update_loan_entry(database, entry):
     """Update a record of a loan report in the provided database.
 
     @param db: The MongoDB database to operate on. The loans collection will be
@@ -153,21 +158,64 @@ def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
     @param entry: The entry to insert into the database, updating the entry with
         the same _id if one exists.
     @type entry: dict
-    @keyword reassign_id: Indicates if the entry's _id value should be set to
-        recordID value. Defaults to True.
-    @type reassign_id: bool
-    @keyword force_copy: Indicates if the entry should be shallow copied before
-        being modified. If False, the passed entry and code using it may
-        experience side-effects. Setting to True can increase memory usage.
-        Defaults to False.
-    @type force_copy: bool
     """
     entry = cleanEntry(entry)
-    database.loans.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
+    database.loans.update(
+        {'recordID': entry['recordID']},
+        {'$set': entry},
+        upsert=True
+    )
 
 
-def update_entry(database, entry, report_type, reassign_id=True,
-    force_copy=False):
+def insert_contribution_entries(database, entries):
+    """Insert a set of records of a contribution report in the provided database.
+
+    Insert a set of new records into the provided database without checking
+    for conflicting entries.
+
+    @param database: The MongoDB database to operate on. The contributions
+        collection will be used from this database.
+    @type db: pymongo.database.Database
+    @param entries: The entries to insert into the database.
+    @type entries: dict
+    """
+    entries = map(cleanEntry, entries)
+    database.contributions.insert(entries, continue_on_error=True)
+
+
+def insert_expenditure_entries(database, entries):
+    """Insert a set of records of a expenditure report in the provided database.
+
+    Insert a set of new records into the provided database without checking
+    for conflicting entries.
+
+    @param db: The MongoDB database to operate on. The expenditures collection
+        will be used from this database.
+    @type db: pymongo.database.Database
+    @param entries: The entries to insert into the database.
+    @type entries: dict
+    """
+    entries = map(cleanEntry, entries)
+    database.expenditures.insert(entries, continue_on_error=True)
+
+
+def insert_loan_entries(database, entries):
+    """Insert a set of records of a loan report in the provided database.
+
+    Insert a set of new records into the provided database without checking
+    for conflicting entries.
+
+    @param db: The MongoDB database to operate on. The loans collection will be
+        used from this database.
+    @type db: pymongo.database.Database
+    @param entries: The entries to insert into the database.
+    @type entries: dict
+    """
+    entries = map(cleanEntry, entries)
+    database.loans.insert(entries, continue_on_error=True)
+
+
+def update_entry(database, entry, report_type):
     """Update a record of a contribution report in the provided database.
 
     @param db: The MongoDB database to operate on. The contributions collection
@@ -179,14 +227,6 @@ def update_entry(database, entry, report_type, reassign_id=True,
     @param report_type: The type of report being updated. Should be one of the
         strings in constants.REPORT_TYPES.
     @type report_type: str
-    @keyword reassign_id: Indicates if the entry's _id value should be set to
-        recordID value. Defaults to True.
-    @type reassign_id: bool
-    @keyword force_copy: Indicates if the entry should be shallow copied before
-        being modified. If False, the passed entry and code using it may
-        experience side-effects. Setting to True can increase memory usage.
-        Defaults to False.
-    @type force_copy: bool
     @raise ValueError: Raised if the requested report type could not be found.
     """
     factory = UpdateStrategyFactory.get_instance()
