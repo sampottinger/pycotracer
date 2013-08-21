@@ -88,8 +88,6 @@ def cleanEntry(entry):
     """
     newEntry = {}
 
-    print entry
-
     if 'Address1' in entry:
         address = entry['Address1']
         if entry['Address2'] != '':
