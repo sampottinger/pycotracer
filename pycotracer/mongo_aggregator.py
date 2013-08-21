@@ -12,7 +12,10 @@ access layer.
 @license: GNU GPL v3
 """
 
+import bson
 import copy
+
+import pymongo
 
 import constants
 
@@ -63,36 +66,6 @@ class UpdateStrategyFactory:
         return self.__strategies.get(report_type, None)
 
 
-def manage_id_reassignment(entry, reassign_id, force_copy):
-    """Setting the _id value on an entity if appropriate.
-
-    Determines if the _id value on an entity should be set and if a shallow copy
-    of that entity should be created if the _id property must be set. If
-    reassign_id is False, this is a no-op regardless of the value passed for
-    force_copy. Otherwise, _id is set to the value at the key 'RecordID' in the
-    provided entry. If force_copy, a shallow copy will be made of entry before
-    adding / updating the _id value.
-
-    @param entry: The entry to modify.
-    @type entry: dict
-    @param reassign_id: Flag to indicate if the _id value of entry should be set
-        to the value at entry['RecordID'].
-    @type reassign_id: bool
-    @param force_copy: Flag to indicate if the entry should be shallow copied
-        before making any changes. No copy shall be made if no operations on
-        entry will be run.
-    @type force_copy: bool
-    @return: The modified entry. Will return the shallow copy if a change was
-        made to entry and force_copy was True.
-    @rtype: dict
-    """
-    if reassign_id:
-        if force_copy:
-            entry = copy.copy(entry)
-        entry['_id'] = entry['RecordID']
-    return entry
-
-
 def update_contribution_entry(database, entry, reassign_id=True,
     force_copy=False):
     """Update a record of a contribution report in the provided database.
@@ -112,8 +85,7 @@ def update_contribution_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    entry = manage_id_reassignment(entry, reassign_id, force_copy)
-    database.contributions.update(entry)
+    database.contributions.update({'RecordID': entry['RecordID']}, entry, upsert=True)
 
 
 def update_expenditure_entry(database, entry, reassign_id=True,
@@ -135,8 +107,7 @@ def update_expenditure_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    entry = manage_id_reassignment(entry, reassign_id, force_copy)
-    database.expenditures.update(entry)
+    database.expenditures.update({'RecordID': entry['RecordID']}, entry, upsert=True)
 
 
 def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
@@ -157,8 +128,7 @@ def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
         Defaults to False.
     @type force_copy: bool
     """
-    entry = manage_id_reassignment(entry, reassign_id, force_copy)
-    database.loans.update(entry)
+    database.loans.update({'RecordID': entry['RecordID']}, entry, upsert=True)
 
 
 def update_entry(database, entry, report_type, reassign_id=True,

@@ -25,29 +25,6 @@ class TestMongoAggregator(mox.MoxTestBase):
         expected_strategy = mongo_aggregator.update_expenditure_entry
         self.assertEqual(expend_strategy, expected_strategy)
 
-    def test_manage_id_reassignment_no_copy(self):
-        """Test loading an _id for a new entry without a shallow copy."""
-        start_entry = {'RecordID': 1}
-        new_entry = mongo_aggregator.manage_id_reassignment(start_entry, True,
-            False)
-        self.assertEqual(start_entry, new_entry)
-        self.assertEqual(new_entry, {'RecordID': 1, '_id': 1})
-
-    def test_manage_id_reassignment_copy(self):
-        """Test loading an _id for a new entry with a shallow copy."""
-        start_entry = {'RecordID': 1}
-        new_entry = mongo_aggregator.manage_id_reassignment(start_entry, True,
-            True)
-        self.assertEqual(start_entry, {'RecordID': 1})
-        self.assertEqual(new_entry, {'RecordID': 1, '_id': 1})
-
-    def test_manage_id_reassignment_noop(self):
-        """Test logic to avoid adding _id for a new entry."""
-        start_entry = {'RecordID': 1}
-        new_entry = mongo_aggregator.manage_id_reassignment(start_entry, False,
-            False)
-        self.assertEqual(new_entry, {'RecordID': 1})
-
     def test_update_entry_invalid(self):
         """Test serializing an entry of an unknown report type."""
         test_dict = {}
