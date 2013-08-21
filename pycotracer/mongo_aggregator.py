@@ -19,6 +19,14 @@ import pymongo
 
 import constants
 
+FIELD_TRANSFORM_INDEX = {
+    'CO_ID': 'commiteeID',
+    'MI': 'middleInitial',
+    'ContributionAmount': 'amount',
+    'LoanDate': 'loanStartDate',
+    'PaymentDate': 'date'
+}
+
 
 class UpdateStrategyFactory:
     """A strategy producing factory that serializes different types of reports.
@@ -66,6 +74,30 @@ class UpdateStrategyFactory:
         return self.__strategies.get(report_type, None)
 
 
+def cleanEntry(entry):
+    newEntry = {}
+
+    if 'Address1' in entry:
+        address = entry['Address1']
+        if entry['Address2'] != '':
+            address = address + ' ' + entry['Address2']
+        newEntry['address'] = address
+        del entry['Address1']
+        del entry['Address2']
+
+    for key in entry.keys():
+        
+        if key in FIELD_TRANSFORM_INDEX:
+            newKey = FIELD_TRANSFORM_INDEX[key]
+        else:
+            newKey = key
+        
+        newKey = newKey[:1].lower() + newKey[1:]
+        newEntry[newKey] = entry[key]
+
+    return newEntry
+
+
 def update_contribution_entry(database, entry, reassign_id=True,
     force_copy=False):
     """Update a record of a contribution report in the provided database.
@@ -77,7 +109,7 @@ def update_contribution_entry(database, entry, reassign_id=True,
         the same _id if one exists.
     @type entry: dict
     @keyword reassign_id: Indicates if the entry's _id value should be set to
-        RecordID value. Defaults to True.
+        recordID value. Defaults to True.
     @type reassign_id: bool
     @keyword force_copy: Indicates if the entry should be shallow copied before
         being modified. If False, the passed entry and code using it may
@@ -85,7 +117,8 @@ def update_contribution_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    database.contributions.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
+    entry = cleanEntry(entry)
+    database.contributions.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
 
 
 def update_expenditure_entry(database, entry, reassign_id=True,
@@ -99,7 +132,7 @@ def update_expenditure_entry(database, entry, reassign_id=True,
         the same _id if one exists.
     @type entry: dict
     @keyword reassign_id: Indicates if the entry's _id value should be set to
-        RecordID value. Defaults to True.
+        recordID value. Defaults to True.
     @type reassign_id: bool
     @keyword force_copy: Indicates if the entry should be shallow copied before
         being modified. If False, the passed entry and code using it may
@@ -107,7 +140,8 @@ def update_expenditure_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    database.expenditures.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
+    entry = cleanEntry(entry)
+    database.expenditures.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
 
 
 def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
@@ -120,7 +154,7 @@ def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
         the same _id if one exists.
     @type entry: dict
     @keyword reassign_id: Indicates if the entry's _id value should be set to
-        RecordID value. Defaults to True.
+        recordID value. Defaults to True.
     @type reassign_id: bool
     @keyword force_copy: Indicates if the entry should be shallow copied before
         being modified. If False, the passed entry and code using it may
@@ -128,7 +162,8 @@ def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
         Defaults to False.
     @type force_copy: bool
     """
-    database.loans.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
+    entry = cleanEntry(entry)
+    database.loans.update({'recordID': entry['recordID']}, {'$set': entry}, upsert=True)
 
 
 def update_entry(database, entry, report_type, reassign_id=True,
@@ -145,7 +180,7 @@ def update_entry(database, entry, report_type, reassign_id=True,
         strings in constants.REPORT_TYPES.
     @type report_type: str
     @keyword reassign_id: Indicates if the entry's _id value should be set to
-        RecordID value. Defaults to True.
+        recordID value. Defaults to True.
     @type reassign_id: bool
     @keyword force_copy: Indicates if the entry should be shallow copied before
         being modified. If False, the passed entry and code using it may
