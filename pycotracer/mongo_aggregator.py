@@ -85,7 +85,7 @@ def update_contribution_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    database.contributions.update({'RecordID': entry['RecordID']}, entry, upsert=True)
+    database.contributions.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
 
 
 def update_expenditure_entry(database, entry, reassign_id=True,
@@ -107,7 +107,7 @@ def update_expenditure_entry(database, entry, reassign_id=True,
         Defaults to False.
     @type force_copy: bool
     """
-    database.expenditures.update({'RecordID': entry['RecordID']}, entry, upsert=True)
+    database.expenditures.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
 
 
 def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
@@ -128,7 +128,7 @@ def update_loan_entry(database, entry, reassign_id=True, force_copy=False):
         Defaults to False.
     @type force_copy: bool
     """
-    database.loans.update({'RecordID': entry['RecordID']}, entry, upsert=True)
+    database.loans.update({'RecordID': entry['RecordID']}, {'$set': entry}, upsert=True)
 
 
 def update_entry(database, entry, report_type, reassign_id=True,

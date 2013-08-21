@@ -66,7 +66,7 @@ def is_valid_report_type(report_type):
     return report_type in constants.REPORT_TYPES
 
 
-def get_zipped_file(url):
+def get_zipped_file(url, encoding_error_opt='ignore'):
     """Download and unzip the report file at the given URL.
 
     Downloads and unzips the CO-TRACER archive at the given URL. This is not
@@ -84,7 +84,7 @@ def get_zipped_file(url):
     raw_contents = cStringIO.StringIO(remotezip.read())
     target_zip = zipfile.ZipFile(raw_contents)
     first_filename = target_zip.namelist()[0]
-    return target_zip.read(first_filename)
+    return unicode(target_zip.read(first_filename), errors=encoding_error_opt)
 
 
 def get_report_raw(year, report_type):
