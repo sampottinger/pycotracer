@@ -75,7 +75,7 @@ class UpdateStrategyFactory:
         return self.__strategies.get(report_type, None)
 
 
-def cleanEntry(entry):
+def clean_entry(entry):
     """Consolidate some entry attributes and rename a few others.
 
     Consolidate address attributes into a single field and replace some field
@@ -118,10 +118,10 @@ def update_contribution_entry(database, entry):
         collection will be used from this database.
     @type db: pymongo.database.Database
     @param entry: The entry to insert into the database, updating the entry with
-        the same _id if one exists.
+        the same recordID if one exists.
     @type entry: dict
     """
-    entry = cleanEntry(entry)
+    entry = clean_entry(entry)
     database.contributions.update(
         {'recordID': entry['recordID']},
         {'$set': entry},
@@ -136,10 +136,10 @@ def update_expenditure_entry(database, entry):
         will be used from this database.
     @type db: pymongo.database.Database
     @param entry: The entry to insert into the database, updating the entry with
-        the same _id if one exists.
+        the same recordID if one exists.
     @type entry: dict
     """
-    entry = cleanEntry(entry)
+    entry = clean_entry(entry)
     database.expenditures.update(
         {'recordID': entry['recordID']},
         {'$set': entry},
@@ -154,10 +154,10 @@ def update_loan_entry(database, entry):
         used from this database.
     @type db: pymongo.database.Database
     @param entry: The entry to insert into the database, updating the entry with
-        the same _id if one exists.
+        the same recordID if one exists.
     @type entry: dict
     """
-    entry = cleanEntry(entry)
+    entry = clean_entry(entry)
     database.loans.update(
         {'recordID': entry['recordID']},
         {'$set': entry},
@@ -177,7 +177,7 @@ def insert_contribution_entries(database, entries):
     @param entries: The entries to insert into the database.
     @type entries: dict
     """
-    entries = map(cleanEntry, entries)
+    entries = map(clean_entry, entries)
     database.contributions.insert(entries, continue_on_error=True)
 
 
@@ -193,7 +193,7 @@ def insert_expenditure_entries(database, entries):
     @param entries: The entries to insert into the database.
     @type entries: dict
     """
-    entries = map(cleanEntry, entries)
+    entries = map(clean_entry, entries)
     database.expenditures.insert(entries, continue_on_error=True)
 
 
@@ -209,7 +209,7 @@ def insert_loan_entries(database, entries):
     @param entries: The entries to insert into the database.
     @type entries: dict
     """
-    entries = map(cleanEntry, entries)
+    entries = map(clean_entry, entries)
     database.loans.insert(entries, continue_on_error=True)
 
 
@@ -220,7 +220,7 @@ def update_entry(database, entry, report_type):
         will be used from this database.
     @type db: pymongo.database.Database
     @param entry: The entry to insert into the database, updating the entry with
-        the same _id if one exists.
+        the same recordID if one exists.
     @type entry: dict
     @param report_type: The type of report being updated. Should be one of the
         strings in constants.REPORT_TYPES.
@@ -234,3 +234,42 @@ def update_entry(database, entry, report_type):
 
     return strategy(database, entry, reassign_id=reassign_id,
         force_copy=force_copy)
+
+
+def update_contribution_entries(database, entries):
+    """Update a collection contribution reports in the provided database.
+
+    @param database: The MongoDB database to operate on. The contributions
+        collection will be used from this database.
+    @type db: pymongo.database.Database
+    @param entry: The entries to insert into the database, updating the entry
+        with the same recordID if one exists.
+    @type entry: dict
+    """
+    map(lambda x: update_contribution_entry(database, x), entries)
+
+
+def update_expenditure_entries(database, entries):
+    """Update a collection expenditure reports in the provided database.
+
+    @param db: The MongoDB database to operate on. The expenditures collection
+        will be used from this database.
+    @type db: pymongo.database.Database
+    @param entries: The entry to insert into the database, updating the entry with
+        the same recordID if one exists.
+    @type entries: dict
+    """
+    map(lambda x: update_expenditure_entry(database, x), entries)
+
+
+def update_loan_entries(database, entries):
+    """Update a collection loan reports in the provided database.
+
+    @param db: The MongoDB database to operate on. The loans collection will be
+        used from this database.
+    @type db: pymongo.database.Database
+    @param entry: The entry to insert into the database, updating the entry with
+        the same recordID if one exists.
+    @type entry: dict
+    """
+    map(lambda x: update_loan_entry(database, x), entries)

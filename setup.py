@@ -18,7 +18,7 @@ def read(fname):
 
 setup(
     name='pycotracer',
-    version='0.4',
+    version='0.4.1',
     packages=['pycotracer'],
     author='A. Samuel Pottinger',
     url='https://github.com/Samnsparky/pycotracer',
