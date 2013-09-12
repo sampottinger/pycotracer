@@ -85,6 +85,10 @@ def interpret_contribution_entry(entry):
         entry['ContributionAmount'] = new_contribution_amount
     except ValueError:
         entry['AmountsInterpreted'] = False
+    except TypeError:
+        entry['AmountsInterpreted'] = False
+    except AttributeError:
+        entry['AmountsInterpreted'] = False
 
     try:
         contribution_date = parse_iso_str(entry['ContributionDate'])
@@ -94,6 +98,10 @@ def interpret_contribution_entry(entry):
         entry['FiledDate'] = filed_date
     except ValueError:
         entry['DatesInterpreted'] = False
+    except TypeError:
+        entry['DatesInterpreted'] = False
+    except AttributeError:
+        entry['DatesInterpreted'] = False
 
     try: 
         amended = parse_yes_no_str(entry['Amended'])
@@ -102,6 +110,10 @@ def interpret_contribution_entry(entry):
         entry['Amended'] = amended
         entry['Amendment'] = amendment
     except ValueError:
+        entry['BooleanFieldsInterpreted'] = False
+    except TypeError:
+        entry['BooleanFieldsInterpreted'] = False
+    except AttributeError:
         entry['BooleanFieldsInterpreted'] = False
 
     return entry
