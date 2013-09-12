@@ -89,9 +89,9 @@ def clean_entry(entry):
     newEntry = {}
 
     if 'Address1' in entry:
-        address = entry['Address1']
+        address = str(entry['Address1'])
         if entry['Address2'] != '':
-            address = address + ' ' + entry['Address2']
+            address = address + ' ' + str(entry['Address2'])
         newEntry['address'] = address
         del entry['Address1']
         del entry['Address2']
