@@ -2,7 +2,7 @@ h1. pycotracer
 
 Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx or TRACER system.
 
-Note: This is no longer maintained and is not Python 3 compatible. It has been removed from Pypi.
+Note: This is no longer maintained and is not Python 3 compatible. Its dependencies are not updated or monitored for security issues. It has been removed from Pypi. It is not recommended for future use.
 
 h2. Authors and License
 
