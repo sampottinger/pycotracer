@@ -18,7 +18,7 @@ def read(fname):
 
 setup(
     name='pycotracer',
-    version='0.4.2',
+    version='0.4.3',
     packages=['pycotracer'],
     author='A. Samuel Pottinger',
     url='https://github.com/Samnsparky/pycotracer',
@@ -41,5 +41,5 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Sociology'
     ],
-    download_url='https://github.com/Samnsparky/pycotracer/archive/master.zip'
+    download_url='https://github.com/sampottinger/pycotracer/archive/master.zip'
 )

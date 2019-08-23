@@ -2,7 +2,7 @@ h1. pycotracer
 
 Python micro-library providing programmatic read access to the "Colorado Transparency in Contribution and Expenditure Reporting":http://tracer.sos.colorado.gov/PublicSite/homepage.aspx or TRACER system.
 
-Note: This is no longer maintained and is not Python 3 compatible. Its dependencies are not updated or monitored for security issues. It has been removed from Pypi. It is not recommended for future use.
+Note: This is no longer maintained and is not recommended for future use.
 
 h2. Authors and License
 
@@ -21,20 +21,20 @@ Alternatively, this pure-Python micro-library can be included directly in client
 h2. Quickstart
 
 bc.. >>> import pycotracer
->>> 
+>>>
 >>> # Report types: REPORT_LOAN_DATA, REPORT_CONTRIB_DATA, REPORT_EXPEND_DATA
 >>> all_2013_reports = pycotracer.get_report(2013)
 >>> loan_data_2012 = pycotracer.get_report(2012, pycotracer.REPORT_LOAN_DATA)
->>> 
->>> 
+>>>
+>>>
 >>> all_2013_reports.keys()
 ['ExpenditureData', 'LoanData', 'ContributionData']
 >>> len(all_2013_reports['ExpenditureData'])
 8513
 >>> all_2013_reports['ExpenditureData'][0].keys()
 ['City', 'FirstName', 'LastName', 'ExpenditureAmount', 'Electioneering', ...]
->>> 
->>> 
+>>>
+>>>
 >>> len(loan_data_2012)
 470
 >>> loan_data_2012[0].keys()
